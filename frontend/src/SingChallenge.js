@@ -2,7 +2,7 @@ import { useEffect, useLayoutEffect, useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { GroupHeader, Congratulations, GuidingButton } from './ChallengeComponents.js';
 import SuperPitchIntervalChallenge from './SuperPitchClasses.js';
-import { UpdateVoiceRange } from './UserActions.js';
+import { updateVoiceRange } from './UserActions.js';
 
 /**
  * The row with the generate & play buttons as well as the interval and the singing progress
@@ -79,7 +79,6 @@ function SensitivitySlider({ currentRMS, onSliderInput, onSettingsButtonClick, o
  * @return {React.ReactElement} The React Element
  */
 function PitchIndicator({ notesToSing=[], sungNotes=[], nowSinging, isReady, rangeToHighlight=[-1,-1] }) {
-    // TODO: Make it more beautiful! (rounded frame in the bottom missing etc)
 
     useEffect(() => {
         //console.log('useEffect called');
@@ -318,7 +317,7 @@ function SingChallenge({ challenge, setChallengeFn, closeActiveChallengeFn, user
                                 if (userData.isLoggedIn) {
                                     const range = userData.voiceRange;
                                     console.log(range);
-                                    UpdateVoiceRange({ showLoadingScreenFn, setErrorMessageFn, setSuccessMessageFn }, range);
+                                    updateVoiceRange(showLoadingScreenFn, setErrorMessageFn, setSuccessMessageFn, range);
                                 }
                             } : null }
                             pulsatingButton={pulsatingButton}

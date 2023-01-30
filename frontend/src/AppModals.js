@@ -121,7 +121,6 @@ export function SettingsScreen({ userData, setUserDataFn, closeFn }) {
     }
 
     return (
-        // TODO: Reset voice range!
         <Modal isOpen={isOpen} backdrop="static" toggle={toggle}>
             <ModalHeader>Settings</ModalHeader>
             <ModalBody>
@@ -134,7 +133,8 @@ export function SettingsScreen({ userData, setUserDataFn, closeFn }) {
                                 color='primary' 
                                 onClick={() => { togglePossibleInterval(value.inSemitones) }} 
                                 className="m-1 flex-fill" 
-                                data-interval-in-semitones={value.inSemitones}>
+                                data-interval-in-semitones={value.inSemitones}
+                                key={`interval_insemitones_${value.inSemitones}`}>
                                     {value.displayText}
                             </Button>
                         )}

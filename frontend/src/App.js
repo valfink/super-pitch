@@ -38,6 +38,7 @@ function App() {
    */
   function setUserAsLoggedIn(data) {
     setUserData({
+      ...userData,
       isLoggedIn: true,
       username: data.username,
       voiceRangeIsSet: data.voiceRange[0] !== data.voiceRange[1],
@@ -62,6 +63,7 @@ function App() {
           return;
         } else {
           setUserData({
+            ...userData,
             isLoggedIn: false,
             username: null,
             voiceRangeIsSet: false,

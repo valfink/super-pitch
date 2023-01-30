@@ -11,8 +11,6 @@ from .models import User
 def get_csrf_cookie(request):
     return JsonResponse({"ok": "ok"})
 
-# TODO: remove exempt
-@csrf_exempt
 def login_view(request):
     if request.method == "POST":
 
@@ -40,8 +38,6 @@ def logout_view(request):
     return JsonResponse({"message": "Successfully logged out."})
 
 
-# TODO: remove exempt
-@csrf_exempt
 def register(request):
     if request.method == "POST":
         data = json.loads(request.body)
@@ -68,8 +64,6 @@ def register(request):
         return JsonResponse({"error": "POST request required."}, status=400)
 
 
-# TODO: remove exempt
-@csrf_exempt
 def voiceRange_view(request):
     if not request.user.is_authenticated:
         return JsonResponse({"error": "You are not logged in."}, status=400)

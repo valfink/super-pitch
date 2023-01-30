@@ -35,15 +35,13 @@ export function RegisterOrLoginForm({action, backHomeFn, showLoadingScreenFn, se
     async function sendUserCredentials(event) {
         event.preventDefault();
         showLoadingScreenFn(true);
-        // TODO: this needs to be re-enabled for deployment. must be on the same server though, otherwise it wont work
-        // if (getCookie('csrftoken') === null) {
-        //     await fetch(`${API_URL}/get_csrf_cookie`, { credentials: 'include' });
-        // }
+        if (getCookie('csrftoken') === null) {
+            await fetch(`${API_URL}/get_csrf_cookie`, { credentials: 'include' });
+        }
         fetch(`${API_URL}/${action}`, {
             method: 'POST',
-            // TODO: Include CSRF for deployment
-            // headers: { 'X-CSRFToken': getCookie('csrftoken') },
-            // mode: 'same-origin',
+            headers: { 'X-CSRFToken': getCookie('csrftoken') },
+            mode: 'same-origin',
             body: JSON.stringify({
                 email: document.querySelector('#email').value,
                 password: document.querySelector('#password').value
@@ -70,28 +68,6 @@ export function RegisterOrLoginForm({action, backHomeFn, showLoadingScreenFn, se
             });
     }
 
-    /**
-     * Gets the specified cookie value
-     *
-     * @param {string} name The name of the cookie
-     * @return {string} The content of the cookie
-     */
-    function getCookie(name) {
-        let cookieValue = null;
-        if (document.cookie && document.cookie !== '') {
-            const cookies = document.cookie.split(';');
-            for (var i = 0; i < cookies.length; i++) {
-                const cookie = cookies[i].trim();
-                // Does this cookie string begin with the name we want?
-                if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                    break;
-                }
-            }
-        }
-        return cookieValue;
-    }
-
     return (
         <>
         <Row>
@@ -115,21 +91,15 @@ export function RegisterOrLoginForm({action, backHomeFn, showLoadingScreenFn, se
  * @param {function} setSuccessMessageFn The function to call to show a success message
  * @param {number[]} newVoiceRange The new voice range
  */
-export function UpdateVoiceRange({ showLoadingScreenFn, setErrorMessageFn, setSuccessMessageFn }, newVoiceRange) {
-    console.log('Sending voice range to server...');
-    console.log({
-        voiceRange: newVoiceRange
-    });
+export async function updateVoiceRange(showLoadingScreenFn, setErrorMessageFn, setSuccessMessageFn, newVoiceRange) {
     showLoadingScreenFn(true);
-    // TODO: this needs to be re-enabled for deployment. must be on the same server though, otherwise it wont work
-    // if (getCookie('csrftoken') === null) {
-    //     await fetch(`${API_URL}/get_csrf_cookie`, { credentials: 'include' });
-    // }
+    if (getCookie('csrftoken') === null) {
+        await fetch(`${API_URL}/get_csrf_cookie`, { credentials: 'include' });
+    }
     fetch(`${API_URL}/voiceRange`, {
         method: 'PUT',
-        // TODO: Include CSRF for deployment
-        // headers: { 'X-CSRFToken': getCookie('csrftoken') },
-        // mode: 'same-origin',
+        headers: { 'X-CSRFToken': getCookie('csrftoken') },
+        mode: 'same-origin',
         body: JSON.stringify({
             voiceRange: newVoiceRange
         })
@@ -151,4 +121,26 @@ export function UpdateVoiceRange({ showLoadingScreenFn, setErrorMessageFn, setSu
             setErrorMessageFn(err.message);
             showLoadingScreenFn(false);
         });
+}
+
+/**
+     * Gets the specified cookie value
+     *
+     * @param {string} name The name of the cookie
+     * @return {string} The content of the cookie
+     */
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
 }
