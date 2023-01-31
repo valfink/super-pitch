@@ -611,7 +611,7 @@ export class SuperPitchDetectorNode extends AnalyserNode {
      */
 
     /**
-     * Starts pitch detection and writes detection data into the Object's detected variable. If passed, callbackFn will be called.
+     * Starts continuous pitch detection and writes detection data into the Object's detected variable. If passed, callbackFn will be called.
      *
      * @param {pitchDetectionHandler} [callbackFn=null] The callback function handling the detected pitch data
      */
@@ -686,7 +686,7 @@ export class SuperPitchDetectorNode extends AnalyserNode {
     }
 
     /**
-     * Stops the constant pitch detection
+     * Stops the continuous pitch detection
      * 
      */
     stopDetecting() {
