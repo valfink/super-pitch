@@ -6,7 +6,6 @@ import { RegisterOrLoginForm } from './UserActions.js';
 import AppStarter from './AppStarter.js';
 import SuperPitchIntervalChallenge from "./SuperPitchClasses";
 import { API_URL } from './constants/index.js';
-import { AudioStarter } from "./ChallengeComponents";
 
 /**
  * The general logic of the App

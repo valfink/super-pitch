@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Button } from 'reactstrap';
 
 /**
  * A group heading
@@ -35,34 +35,6 @@ export function GroupHeader({ text }) {
  */
 export function GuidingButton({ className, pulsatingButton, children, ...props }) {
     return <Button className={`${className} ${pulsatingButton === children ? 'pulsating' : ''}`} {...props}>{children}</Button>;
-}
-
-/**
- * Modal to start the audio, deprecated
- *
- * @export
- * @param {function} onBtnClick The function to call onClick the Start button
- * @return {React.ReactElement} The React Element
- */
-export function AudioStarter({ onBtnClick }) {
-    const [startAudioModal, setStartAudioModal] = useState(true);
-
-    const toggle = () => setStartAudioModal(!startAudioModal);
-
-    return (
-        <Modal isOpen={startAudioModal} backdrop="static" toggle={toggle}>
-            <ModalHeader close={<></>}>Start Audio</ModalHeader>
-            <ModalBody>
-                Audio is not running yet, please start to continue.<br />
-                Microphone input is needed for singing intervals.
-            </ModalBody>
-            <ModalFooter>
-                <Button color="primary" onClick={onBtnClick}>
-                    Start Audio
-                </Button>
-            </ModalFooter>
-        </Modal>
-    );
 }
 
 /**
