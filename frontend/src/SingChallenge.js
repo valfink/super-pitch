@@ -22,9 +22,9 @@ function SingIntervalRow({ onGenerateBtnClick, onPlayBtnClick, interval, progres
                     {/* <GroupHeader text="New Interval" /> */}
                     <div className="list-group-item h-100"><GuidingButton pulsatingButton={pulsatingButton} outline color='success' onClick={ onGenerateBtnClick } className="w-100 h-100">New Interval</GuidingButton></div>
                 {/* </div>
-                <div className={`col-6 col-md-12 flex-grow-1 list-group p-2 ${onPlayBtnClick ? '' : 'notYetReady'}`}> */}
+                <div className={`col-6 col-md-12 flex-grow-1 list-group p-2`}> */}
                     {/* <GroupHeader text="Root Note" /> */}
-                    <div className="list-group-item h-100"><GuidingButton pulsatingButton={pulsatingButton} outline color='info' onClick={ onPlayBtnClick } className="w-100 h-100">Play Root</GuidingButton></div>
+                    <div className={`list-group-item h-100 ${onPlayBtnClick ? '' : 'notYetReady'}`}><GuidingButton pulsatingButton={pulsatingButton} outline color='info' onClick={ onPlayBtnClick } className="w-100 h-100">Play Root</GuidingButton></div>
                 </div>
                 <div className={`col-6 col-md-12 flex-grow-1 list-group p-2 ${Object.keys(interval).length !== 0 ? '' : 'notYetReady'}`}>
                     <GroupHeader text="Interval" />
