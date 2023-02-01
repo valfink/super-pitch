@@ -28,11 +28,11 @@ function SingIntervalRow({ onGenerateBtnClick, onPlayBtnClick, interval, progres
                 </div>
                 <div className={`col-6 col-md-12 flex-grow-1 list-group p-2 ${Object.keys(interval).length !== 0 ? '' : 'notYetReady'}`}>
                     <GroupHeader text="Interval" />
-                    <div className="list-group-item h-100 interval-display variableGradientBG" style={{ "--greenPercent": `${progress[0]}%` }}>{interval.type ? interval.type : '\u00A0'}<sup>{interval.type === 1 ? "st" : interval.type === 2 ? "nd" : interval.type === 3 ? "rd" : interval.type === "tritone" ? "" : interval.type ? "th": ""}</sup> {interval.subtype !== 'perf' ? (interval.subtype || '') : ''}</div>
+                    <div className={`list-group-item h-100 interval-display variableGradientBG ${pulsatingButton === 'progress1' ? 'pulsating' : ''}`} style={{ "--greenPercent": `${progress[0]}%` }}>{interval.type ? interval.type : '\u00A0'}<sup>{interval.type === 1 ? "st" : interval.type === 2 ? "nd" : interval.type === 3 ? "rd" : interval.type === "tritone" ? "" : interval.type ? "th": ""}</sup> {interval.subtype !== 'perf' ? (interval.subtype || '') : ''}</div>
                 {/* </div>
                 <div className={`col-6 col-md-12 flex-grow-1 list-group p-2 ${Object.keys(interval).length !== 0 ? '' : 'notYetReady'}`}> */}
                     {/* <GroupHeader text="Progress" /> */}
-                    <div className="list-group-item h-100 interval-display variableGradientBG" style={{ "--greenPercent": `${progress[1]}%` }}>
+                    <div className={`list-group-item h-100 interval-display variableGradientBG ${pulsatingButton === 'progress2' ? 'pulsating' : ''}`} style={{ "--greenPercent": `${progress[1]}%` }}>
                         {Object.keys(interval).length !== 0 ? (interval.notes[1] > interval.notes[0] ? '↑↑↑ UP' : '↓↓↓ DOWN') : ''}
                     {/* <div className={`progress h-50 ${pulsatingButton === 'progress1' ? 'pulsating' : ''}`}><div className='progress-bar bg-success h-100' style={{ "width": `${progress[0]}%` }}></div></div><div className={`progress h-50 ${pulsatingButton === 'progress2' ? 'pulsating' : ''}`}><div className='progress-bar bg-success h-100' style={{"width": `${progress[1]}%`}}></div></div> */}
                     </div>

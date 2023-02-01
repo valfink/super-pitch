@@ -78,6 +78,9 @@ html, body {
 .pulsating {
     animation: pulsatingbutton 2s ease-in-out infinite;
 }
+.interval-display.pulsating {
+    animation: pulsatingwhitebackground 2s ease-in-out infinite;
+}
 @keyframes pulsatingbutton {
     50% {
         /* background-color:rgba(75, 178, 121, 0.5);
@@ -85,6 +88,11 @@ html, body {
         /*  background-color: rgba(0, 0, 0, 0.3); */
         filter: invert(100%);
         backdrop-filter: invert(15%);
+    }
+}
+@keyframes pulsatingwhitebackground {
+    50% {
+        color: rgb(255, 37, 153);
     }
 }
 .pianoroll {
