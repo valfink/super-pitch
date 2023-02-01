@@ -18,7 +18,7 @@ The React App handles all the user interaction, renders output to the user and a
 * `SuperPitchSoundNode` generates click free sound output through customised `OscillatorNode` methods, using 2 Oscillators
 * `SuperPitchDetectorNode` handles the real time pitch detection. The detection works with auto-correlation. The implementation of the auto-correlation function is heavily inspired by Chris Wilson's [PitchDetect](https://github.com/cwilso/PitchDetect) repo.
 
-When you want to sing an interval, it is important that the notes be within your voice range. That is why any user will be asked to record their voice range before starting to sing intervals, so the app will only present notes that are singable to the user, avoiding frustration and allowing them to concentrate on the interval instead of their voice.  
+When you want to sing an interval, it is important that all the notes are within your voice range. That is why any user will be asked to record their voice range before starting to sing intervals, so the app will only present notes that are singable to the user, avoiding frustration and allowing them to concentrate on the interval instead of their voice.  
 In order to remember the voice range the next time a user opens the app, there is also a server that will store it for them.
 
 ## Back-End
