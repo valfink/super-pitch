@@ -16,7 +16,7 @@ The front-end is a React App using functional components and relying heavily on 
 The React App handles all the user interaction, renders output to the user and also communicates with the back-end, while the `SuperPitchClasses.js` file handles all the musical and audio i/o logic through three classes:
 * `SuperPitchIntervalChallenge` is the main "mother" class and directly handles interval creation and checks the answer for a _listen challenge_. It contains instances of the other two classes.
 * `SuperPitchSoundNode` generates click free sound output through customised `OscillatorNode` methods, using 2 Oscillators
-* `SuperPitchDetectorNode` handles the real time pitch detection. The detection works with auto-correlation. The implementation of the auto-correlation function is heavily inspired by Chris Wilson's 'PitchDetect' repo.
+* `SuperPitchDetectorNode` handles the real time pitch detection. The detection works with auto-correlation. The implementation of the auto-correlation function is heavily inspired by Chris Wilson's [PitchDetect](https://github.com/cwilso/PitchDetect) repo.
 
 When you want to sing an interval, it is important that the notes be within your voice range. That is why any user will be asked to record their voice range before starting to sing intervals, so the app will only present notes that are singable to the user, avoiding frustration and allowing them to concentrate on the interval instead of their voice.  
 In order to remember the voice range the next time a user opens the app, there is also a server that will store it for them.
