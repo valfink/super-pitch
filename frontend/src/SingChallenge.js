@@ -160,10 +160,13 @@ function RecordVoiceRange({ onStartBtnClick, onResetBtnClick, onSaveBtnClick, pu
                 <ModalHeader close={<></>}>Record Range</ModalHeader>
                 <ModalBody>
                     You have not recorded your voice range yet.<br />
-                    Please record it now. After clicking on Start, please sing your lowest and highest notes. <br />
-                    You can start in a comfortable range and then work your way up and down. When you have finished singing, please click the Stop Button.<br />
-                    If the shown range doesn't seem right, you can start again with the Start Button.<br />
-                    Finally, please save your range with the Save Button.
+                    Please record it now.
+                    <ol>
+                        <li>Click on the <strong>Start Button</strong> and sing your lowest and highest notes.<br />
+                        You can start in a comfortable range and then work your way up and down.</li>
+                        <li>If the shown range doesn't seem right, you can click on the <strong>Reset Button</strong> and then start again with the Start Button.</li>
+                        <li>When you have finished singing, please click on the <strong>Save Button</strong> to submit.</li>
+                        </ol>
                 </ModalBody>
                 <ModalFooter>
                     <Button color="primary" onClick={toggle}>
